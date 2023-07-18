@@ -21,6 +21,9 @@ public class BookService {
 		return result;
 	}
 	
-	
+	@Transactional(readOnly = true)
+	public Book findById(Long id) {
+		return bookRepository.findById(id).get();
+	}
 	
 }
