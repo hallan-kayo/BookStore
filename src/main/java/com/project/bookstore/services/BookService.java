@@ -2,6 +2,7 @@ package com.project.bookstore.services;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,6 +33,12 @@ public class BookService {
 	
 	public void deleteBook(Long id) {
 		bookRepository.deleteById(id);
+	}
+	
+	public Book updateBook(Long id, Book book) {
+		Book result = this.findById(id);
+		BeanUtils.copyProperties(book, result, "id");
+		return bookRepository.save(result);
 	}
 	
 }
