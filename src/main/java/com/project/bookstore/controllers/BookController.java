@@ -16,7 +16,7 @@ import com.project.bookstore.entities.Book;
 import com.project.bookstore.services.BookService;
 
 @RestController
-@RequestMapping(value = "/book")
+@RequestMapping(value = "/books")
 public class BookController {
 
 	@Autowired
